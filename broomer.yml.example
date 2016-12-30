@@ -1,0 +1,44 @@
+# vim: ft=yaml:sw=4:ts=4:sts=4:et:
+bot:
+  github_user: ''
+  github_password: ''
+
+auto_close_issues:
+  notify_after: '90 days' # Notify issues after this time of inactivity
+  grace_period: '15 days' # After being notified, the issues is closed after this grace period
+  keep_open_label: 'keep-open' # Label to add for keeping the issue open
+
+  # Mustache template for reminder.
+  reminder_template: 'Hi @{{ author }},
+
+
+    This {{ issue_type }} will be automatically closed on {{ close_date }}
+    due to the lack of activity (comments or updates). Closed issues that
+    remain inactive for a long period of time might also get automatically
+    locked.
+
+
+    If you think this is an error or you want to keep the issue from being
+    closed reply with a comment or apply the `{{ keep_open }}` label to
+    permanently disable auto-closing.
+  '
+
+  # Mustache template for closing message
+  closing_template: 'This {{ issue_type }} was automatically closed due to lack
+    of activity. You can repoen the issue and apply the `{{ keep_open }}` label
+    to keep the issue from beig automatically closed in the future.'
+
+  close_date_patterns: # When seraching for reminder comments consider this patterns.
+                       # If you modified the reminder_template you should probably need
+                       # to change this
+    - ['(.*)closed? on (.*) due to (.*)', '\2']
+
+  labels: [] # Consider only issues with this label
+  repos: [] # Consider issues only from this repos. The default is to consider from all repos where bot user has access.
+  skip_with_milestone: True # Skip issues which are part of a milestone
+  skip_pull_request: False # Skip pull requests
+  skip_repos: [] # Skip these repos
+  skip_labels: # Skip labeled with these labels
+      - bug
+      - question
+  since: '5 years ago' # Consider only issues since this moment
