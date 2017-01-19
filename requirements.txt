@@ -1,4 +1,4 @@
-maya==0.1.4
+maya==0.1.5
 pystache==0.5.4
 PyYAML==3.12
 zipa==0.3.0

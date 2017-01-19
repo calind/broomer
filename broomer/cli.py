@@ -1,6 +1,3 @@
-# pylint: disable=missing-docstring
-# -*- coding: utf-8 -*-
-# vim: ft=python:sw=4:ts=4:sts=4:et:
 import re
 import maya
 import pystache
