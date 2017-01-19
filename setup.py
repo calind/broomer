@@ -16,8 +16,8 @@ except OSError as e:
     sys.exit(1)
 
 install_requires = ['zipa', 'maya', 'PyYAML', 'pystache']
-tests_require = ['pytest', 'pytest-flake8']
-setup_requires = ['pypandoc']
+tests_require = ['pytest', 'pytest-runner>=2.0,<3dev', 'pytest-flake8']
+setup_requires = tests_require + ['pypandoc']
 
 setup(
     name='broomer',
@@ -46,6 +46,9 @@ setup(
         'Environment :: Console',
         'Topic :: Software Development :: Build Tools',
         'License :: OSI Approved :: BSD License',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
     ],
 )
