@@ -1,0 +1,7 @@
+pipeline:
+  build:
+    image: python:3.5
+    commands:
+      - sudo apt-get install pandoc
+      - pip install -r requirements.dev.txt
+      - python setup.py test
